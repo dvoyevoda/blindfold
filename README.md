@@ -13,7 +13,7 @@
 
 ## Get started
 
-1. Unzip the download, move **Blindfold.app** to **Applications**, and open it.
+1. Open the **DMG**, drag **Blindfold.app** to **Applications**, then open it from there.
 2. Choose what to pause and click **Start Cleaning**. For keyboard or pointer input, grant **Accessibility** and, if requested, **Input Monitoring** in **System Settings → Privacy & Security**.
 3. Hold **Esc** for three seconds to finish, or let the auto-unlock timer expire. Choose **Never** for a session without a timer.
 
