@@ -4,7 +4,7 @@
 <h1 align="center">Blindfold</h1>
 <p align="center">Clean your Mac without accidental input.</p>
 <p align="center">
-  <strong><a href="https://github.com/dvoyevoda/inputhush/releases/latest">Download for macOS</a></strong>
+  <strong><a href="https://github.com/dvoyevoda/blindfold/releases/latest">Download for macOS</a></strong>
   · macOS 14 or later · <a href="LICENSE">MIT License</a>
 </p>
 <p align="center">
@@ -33,15 +33,15 @@ Blindfold runs locally without telemetry. The power button and Touch ID stay und
 Use macOS 14 or later with Xcode or the Command Line Tools and Swift 6 or later.
 
 ```sh
-git clone https://github.com/dvoyevoda/inputhush.git
-cd inputhush
+git clone https://github.com/dvoyevoda/blindfold.git
+cd blindfold
 ./scripts/build-app.sh
 open .build/Blindfold.app
 ```
 
 ## Contributing
 
-Report bugs in [GitHub Issues](https://github.com/dvoyevoda/inputhush/issues). To submit a change, fork the repo, run the [tests and relevant manual checks](docs/testing.md), then open a pull request against `main` with a summary and your test results.
+Report bugs in [GitHub Issues](https://github.com/dvoyevoda/blindfold/issues). To submit a change, fork the repo, run the [tests and relevant manual checks](docs/testing.md), then open a pull request against `main` with a summary and your test results.
 
 ## License
 

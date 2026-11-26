@@ -7,11 +7,11 @@ struct CleaningView: View {
 
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
     @Environment(\.colorScheme) private var colorScheme
-    @AppStorage("pauseKeyboard") private var pauseKeyboard = true
-    @AppStorage("turnOffKeyboardBacklight") private var turnOffKeyboardBacklight = true
-    @AppStorage("pausePointer") private var pausePointer = true
-    @AppStorage("blackOutDisplays") private var blackOutDisplays = true
-    @AppStorage("durationSeconds") private var duration = CleaningDuration.oneMinute
+    @AppStorage(CleaningPreferences.pauseKeyboard) private var pauseKeyboard = true
+    @AppStorage(CleaningPreferences.turnOffKeyboardBacklight) private var turnOffKeyboardBacklight = true
+    @AppStorage(CleaningPreferences.pausePointer) private var pausePointer = true
+    @AppStorage(CleaningPreferences.blackOutDisplays) private var blackOutDisplays = true
+    @AppStorage(CleaningPreferences.duration) private var duration = CleaningDuration.oneMinute
 
     private let panelInset: CGFloat = 16
     private let panelShape = RoundedRectangle(cornerRadius: 22)

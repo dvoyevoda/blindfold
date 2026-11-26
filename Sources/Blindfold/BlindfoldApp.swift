@@ -6,6 +6,10 @@ struct BlindfoldApp: App {
     @Environment(\.openWindow) private var openWindow
     @StateObject private var controller = CleaningController()
 
+    init() {
+        CleaningPreferences.migrateLegacySettings()
+    }
+
     var body: some Scene {
         Window("Blindfold", id: "cleaning") {
             CleaningView(controller: controller)
