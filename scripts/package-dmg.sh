@@ -16,14 +16,23 @@ if [[ "$output" != *.dmg || -e "$output" || -L "$output" ]]; then
     exit 1
 fi
 
+if ! command -v uvx >/dev/null 2>&1; then
+    printf 'Install uv (https://docs.astral.sh/uv/) to package the disk image.\n' >&2
+    exit 1
+fi
+
 work_dir="$(mktemp -d "$(dirname "$output")/.blindfold-dmg.XXXXXX")"
 trap 'rm -rf "$work_dir"' EXIT
-mkdir "$work_dir/contents"
-ditto --norsrc --noextattr "$app" "$work_dir/contents/Blindfold.app"
-ln -s /Applications "$work_dir/contents/Applications"
+render_icon="$repo_dir/scripts/render-icon.swift"
+artwork="$repo_dir/assets/installer"
+swift "$render_icon" "$artwork/volume-icon.svg" "$work_dir/volume.icns"
+swift "$render_icon" "$artwork/background.svg" "$work_dir/background.png" 560 292
+swift "$render_icon" "$artwork/background.svg" "$work_dir/background@2x.png" 1120 584
 
 image="$work_dir/Blindfold.dmg"
-hdiutil create -srcfolder "$work_dir/contents" -volname Blindfold -fs HFS+ -format UDZO "$image"
+uvx --from dmgbuild==1.6.7 dmgbuild -s "$repo_dir/scripts/dmg-settings.py" \
+    -D "app=$app" -D "icon=$work_dir/volume.icns" -D "background=$work_dir/background.png" \
+    Blindfold "$image"
 hdiutil verify "$image"
 mv -n "$image" "$output"
 if [[ -e "$image" ]]; then

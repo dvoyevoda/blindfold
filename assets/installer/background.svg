@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="292" viewBox="0 0 560 292">
+  <defs>
+    <linearGradient id="surface" x1="64" y1="0" x2="470" y2="292" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fcfdff"/>
+      <stop offset=".55" stop-color="#eef3f8"/>
+      <stop offset="1" stop-color="#dce6f1"/>
+    </linearGradient>
+    <radialGradient id="light" cx="177" cy="49" r="370" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff" stop-opacity=".82"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M0 0h560v292H0z" fill="url(#surface)"/>
+  <path d="M0 0h560v292H0z" fill="url(#light)"/>
+  <path d="M257 122h45m-12-12 12 12-12 12" fill="none" stroke="#5a6c83"
+        stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="280" y="235" fill="#293b50" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, sans-serif" font-size="15" font-weight="500">
+    Drag Blindfold to Applications
+  </text>
+</svg>

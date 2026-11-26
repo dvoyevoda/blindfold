@@ -17,7 +17,7 @@
 2. Choose what to pause and click **Start Cleaning**. For keyboard or pointer input, grant **Accessibility** and, if requested, **Input Monitoring** in **System Settings → Privacy & Security**.
 3. Hold **Esc** for three seconds to finish, or let the auto-unlock timer expire. Choose **Never** for a session without a timer.
 
-This release uses ad hoc signing and is distributed without Apple notarization. If macOS blocks the first launch, follow [Apple’s instructions for opening a trusted app](https://support.apple.com/en-us/102445#openanyway), or build from source below.
+Blindfold is ad hoc signed. If Gatekeeper blocks your first launch, click **Done**, then go to **System Settings → Privacy & Security** and choose **Open Anyway** for Blindfold. [Apple’s first-launch instructions](https://support.apple.com/en-us/102445#openanyway)
 
 ## Cleaning controls
 
@@ -38,6 +38,8 @@ cd blindfold
 ./scripts/build-app.sh
 open .build/Blindfold.app
 ```
+
+To package the DMG, install [uv](https://docs.astral.sh/uv/) and run `./scripts/package-dmg.sh` after building.
 
 ## Contributing
 

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 1024 1024" role="img" aria-labelledby="title">
+  <title id="title">Blindfold installation disk</title>
+  <defs>
+    <linearGradient id="metal" x1="271" y1="168" x2="742" y2="705" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset=".48" stop-color="#e9eef4"/>
+      <stop offset="1" stop-color="#b6c2d0"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="645" x2="0" y2="854" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#b8c3d1"/>
+      <stop offset=".58" stop-color="#77879b"/>
+      <stop offset="1" stop-color="#536276"/>
+    </linearGradient>
+    <linearGradient id="cloth" x1="426" y1="306" x2="466" y2="545" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#50565f"/>
+      <stop offset=".32" stop-color="#292c32"/>
+      <stop offset="1" stop-color="#101217"/>
+    </linearGradient>
+    <radialGradient id="shadow">
+      <stop stop-color="#24344a" stop-opacity=".27"/>
+      <stop offset="1" stop-color="#24344a" stop-opacity="0"/>
+    </radialGradient>
+    <path id="lid" d="M324 165h376c52 0 79 22 96 70l106 359c12 43-13 82-63 82H185c-50 0-75-39-63-82l106-359c17-48 44-70 96-70Z"/>
+  </defs>
+  <ellipse cx="512" cy="842" rx="435" ry="89" fill="url(#shadow)"/>
+  <path d="M121 616h782v120c0 59-42 98-101 98H222c-59 0-101-39-101-98Z"
+        fill="url(#edge)" stroke="#657487" stroke-width="6"/>
+  <use href="#lid" fill="url(#metal)" stroke="#8c9bae" stroke-width="7"/>
+  <path d="M326 174h372c44 0 73 22 87 67l99 332"
+        fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+  <path d="M135 664c15 27 40 39 71 39h612c31 0 56-12 71-39"
+        fill="none" stroke="#e4ebf3" stroke-width="6" stroke-linecap="round" opacity=".75"/>
+  <path d="M627 389c39-45 86-61 137-53-13 16-19 34-17 51-46 0-77 17-103 42Z
+           M637 425c48 10 67 70 124 95-19 10-36 25-44 43-43-29-62-66-94-112Z"
+        fill="url(#cloth)" stroke="#171b23" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M272 373c15-16 41-12 72-8 80 10 157-12 228-1 36 5 72 15 94 35 17 15 17 39 0 53-23 19-59 26-100 30-88 8-154-16-220-5-36 6-63 2-75-15-11-15-10-77 1-89Z"
+        fill="url(#cloth)" stroke="#171b23" stroke-width="5"/>
+  <path d="M644 381c24-3 47 10 53 34 5 19-6 38-25 42-22 5-44-11-48-32-5-20 3-41 20-44Z"
+        fill="url(#cloth)" stroke="#19202a" stroke-width="5"/>
+  <path d="M282 392c34-7 54 6 100 4 83-4 148-21 223 3m53-9c12 3 20 12 24 21"
+        fill="none" stroke="#89919c" stroke-width="4" stroke-linecap="round" opacity=".42"/>
+  <path d="M729 761h46" stroke="#e1edf8" stroke-width="14" stroke-linecap="round"/>
+</svg>
