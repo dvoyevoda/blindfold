@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 1024 1024" role="img" aria-labelledby="title description">
+  <title id="title">Blindfold bandana icon</title>
+  <desc id="description">A black cloth blindfold with a side knot and two loose tails on a pearl-white tile.</desc>
+  <defs>
+    <path id="tile" d="M330 64h364c183 0 266 83 266 266v364c0 183-83 266-266 266H330C147 960 64 877 64 694V330C64 147 147 64 330 64Z"/>
+    <path id="band" d="M179 439c11-17 46-18 85-13 105 15 212-19 320-3 49 8 92 16 134 43 21 15 21 48 3 66-30 23-87 36-143 42-136 14-189-24-301-6-53 9-87-2-101-21-10-17-7-87 3-108Z"/>
+    <linearGradient id="pearl" x1="190" y1="89" x2="851" y2="945" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fcfdff"/>
+      <stop offset=".48" stop-color="#edf0f4"/>
+      <stop offset="1" stop-color="#cbd1da"/>
+    </linearGradient>
+    <radialGradient id="top-light" cx="336" cy="111" r="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffffff" stop-opacity=".95"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="204" y1="72" x2="801" y2="951" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#aeb7c4" stop-opacity=".42"/>
+      <stop offset=".45" stop-color="#d4dae3" stop-opacity=".54"/>
+      <stop offset="1" stop-color="#a4aebb" stop-opacity=".82"/>
+    </linearGradient>
+    <radialGradient id="shadow">
+      <stop stop-color="#41495a" stop-opacity=".27"/>
+      <stop offset="1" stop-color="#41495a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="cloth" x1="294" y1="408" x2="392" y2="590" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#37383d"/>
+      <stop offset=".51" stop-color="#1d1e22"/>
+      <stop offset="1" stop-color="#0b0b0d"/>
+    </linearGradient>
+    <linearGradient id="tail" x1="827" y1="385" x2="713" y2="656" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#33343a"/>
+      <stop offset=".52" stop-color="#1f2024"/>
+      <stop offset="1" stop-color="#0e0f12"/>
+    </linearGradient>
+    <linearGradient id="knot" x1="713" y1="455" x2="751" y2="549" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#47484e"/>
+      <stop offset=".56" stop-color="#292a2f"/>
+      <stop offset="1" stop-color="#131417"/>
+    </linearGradient>
+    <linearGradient id="fold" x1="200" y1="448" x2="715" y2="495" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b9ca4" stop-opacity=".46"/>
+      <stop offset=".72" stop-color="#8d8e97" stop-opacity=".24"/>
+      <stop offset="1" stop-color="#8d8e97" stop-opacity=".07"/>
+    </linearGradient>
+  </defs>
+
+  <use href="#tile" fill="url(#pearl)"/>
+  <use href="#tile" fill="url(#top-light)"/>
+  <use href="#tile" fill="none" stroke="url(#rim)" stroke-width="6"/>
+  <ellipse cx="511" cy="594" rx="365" ry="100" fill="url(#shadow)"/>
+
+  <path d="M715 466c44-45 96-61 156-55-15 20-22 38-21 58-48-3-84 16-116 47Z" fill="url(#tail)"/>
+  <path d="M722 503c59 14 81 78 133 127-25 9-45 23-60 44-46-33-60-84-93-127Z" fill="url(#tail)"/>
+  <path d="M747 469c35-24 59-35 91-39m-88 113c29 25 50 68 78 90"
+        fill="none" stroke="#8d8e97" stroke-opacity=".24" stroke-width="3" stroke-linecap="round"/>
+
+  <use href="#band" y="8" fill="#08090b" opacity=".17"/>
+  <use href="#band" fill="url(#cloth)" stroke="#121316" stroke-width="3"/>
+  <path d="M193 455c52-14 107 7 169-3 116-20 211-18 329 24"
+        fill="none" stroke="url(#fold)" stroke-width="4" stroke-linecap="round"/>
+  <path d="M202 537c64-16 113-6 177 2 91 12 184 28 286-3"
+        fill="none" stroke="#777980" stroke-opacity=".20" stroke-width="3" stroke-linecap="round"/>
+
+  <path d="M715 451c25-2 53 16 59 39 7 23-5 47-28 56-18 7-37 1-50-15-17-20-21-43-10-61 6-10 16-17 29-19Z"
+        fill="url(#knot)" stroke="#141518" stroke-width="3"/>
+  <path d="M708 463c18 7 29 25 33 42 3 10 3 21 1 30"
+        fill="none" stroke="#92949e" stroke-opacity=".34" stroke-width="3" stroke-linecap="round"/>
+</svg>
