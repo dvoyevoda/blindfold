@@ -2,7 +2,7 @@
   <img src="assets/branding/blindfold-bandana.svg" width="96" height="96" alt="Blindfold app icon">
 </p>
 <h1 align="center">Blindfold</h1>
-<p align="center">Clean your Mac without accidental input.</p>
+<p align="center">Clean your Mac’s screen, keyboard, trackpad, and mouse without accidental input.</p>
 <p align="center">
   <strong><a href="https://github.com/dvoyevoda/blindfold/releases/latest">Download for macOS</a></strong>
   · macOS 14 or later · <a href="LICENSE">MIT License</a>
@@ -23,7 +23,7 @@ This release uses ad hoc signing and is distributed without Apple notarization. 
 
 - **Keyboard** pauses keystrokes and supported function-row controls.
 - **Trackpad & Mouse** pauses pointer movement, clicks, and scrolling.
-- **Display** blacks out every connected screen, with cleaning status visible on one.
+- **Display** blacks out every connected screen, including external monitors, so fingerprints and smudges are easier to see. One screen shows the cleaning status.
 - **Backlight** turns off the built-in keyboard lighting on supported Macs and restores it afterward.
 
 Blindfold runs locally without telemetry. The power button and Touch ID stay under macOS control.
