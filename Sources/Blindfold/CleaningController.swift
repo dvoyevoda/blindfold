@@ -8,6 +8,8 @@ enum CleaningIssue {
     case inputMonitoring
     case unavailable
     case pointerUnavailable
+    case capsLockUnavailable
+    case capsLockRestoreFailed
     case backlightUnavailable
     case backlightRestoreFailed
     case interrupted
@@ -23,6 +25,10 @@ enum CleaningIssue {
             "macOS couldn’t pause input. Reopen Blindfold and try again."
         case .pointerUnavailable:
             "macOS couldn’t freeze the pointer. Bring Blindfold to the front and try again."
+        case .capsLockUnavailable:
+            "Blindfold couldn’t pause Caps Lock on a connected keyboard."
+        case .capsLockRestoreFailed:
+            "Blindfold couldn’t restore the keyboard mappings. Reopen the app to try again."
         case .backlightUnavailable:
             "Blindfold couldn’t turn off the keyboard backlight."
         case .backlightRestoreFailed:
@@ -44,13 +50,14 @@ final class CleaningController: ObservableObject {
     private let clock = ContinuousClock()
     private let displays = CleaningDisplays()
     private let backlight = KeyboardBacklight()
+    private let capsLock = KeyboardCapsLock()
     private var session: CleaningSession?
     private var tap: InputTap?
     private var localKeyMonitor: Any?
     private var timer: Timer?
 
     init() {
-        backlight.recoverIfNeeded()
+        recoverKeyboardState()
     }
 
     var hasKeyboardBacklight: Bool { backlight.isAvailable }
@@ -114,12 +121,20 @@ final class CleaningController: ObservableObject {
             }
         }
 
+        if options.contains(.keyboard), !capsLock.start(at: clock.now) {
+            issue = releaseInputCapture() ? .capsLockUnavailable : .capsLockRestoreFailed
+            return
+        }
+
         if options.contains(.keyboardBacklight) {
             do {
                 try backlight.turnOff()
             } catch {
-                releaseInputCapture()
-                issue = error == .restoreFailed ? .backlightRestoreFailed : .backlightUnavailable
+                if releaseInputCapture() {
+                    issue = error == .restoreFailed ? .backlightRestoreFailed : .backlightUnavailable
+                } else {
+                    issue = .capsLockRestoreFailed
+                }
                 return
             }
         }
@@ -140,27 +155,36 @@ final class CleaningController: ObservableObject {
 
     func stop() {
         guard session != nil else { return }
-        releaseInputCapture()
+        let restoredCapsLock = releaseInputCapture()
         timer?.invalidate()
         timer = nil
         displays.close()
         session = nil
         options = []
         secondsRemaining = nil
-        if !backlight.restore() { issue = .backlightRestoreFailed }
+        let restoredBacklight = backlight.restore()
+        if !restoredCapsLock {
+            issue = .capsLockRestoreFailed
+        } else if !restoredBacklight {
+            issue = .backlightRestoreFailed
+        }
     }
 
-    func recoverKeyboardBacklight() {
-        if !isCleaning { backlight.recoverIfNeeded() }
+    func recoverKeyboardState() {
+        guard !isCleaning else { return }
+        capsLock.recoverIfNeeded()
+        backlight.recoverIfNeeded()
     }
 
-    private func releaseInputCapture() {
+    private func releaseInputCapture() -> Bool {
+        let restoredCapsLock = capsLock.stop()
         tap?.stop()
         tap = nil
         if let localKeyMonitor {
             NSEvent.removeMonitor(localKeyMonitor)
             self.localKeyMonitor = nil
         }
+        return restoredCapsLock
     }
 
     func displayConfigurationChanged() {
@@ -189,6 +213,11 @@ final class CleaningController: ObservableObject {
         }
 
         let now = clock.now
+        if !capsLock.refresh(at: now) {
+            stop()
+            if issue == nil { issue = .capsLockUnavailable }
+            return
+        }
         if session.shouldEnd(at: now) {
             stop()
             return

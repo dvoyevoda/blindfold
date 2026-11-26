@@ -16,6 +16,7 @@ Start with the 30-second timer and a scratch document. Test one option at a time
 | Option | What to check |
 | --- | --- |
 | Keyboard | Try typing, modifiers, F1–F12, the actions printed on those keys, and the same keys with Fn held. Try Option–Shift with brightness or volume, Command–Tab, Command–Space, and Shift–Command–4. Tap Esc and confirm cleaning continues, then hold it for three seconds to end the session. |
+| Caps Lock | Start keyboard cleaning with Caps Lock off, then repeat with it on. Press Caps Lock during each session and check that its indicator and capitalization state stay as they were. End the session and check that Caps Lock toggles again. |
 | Trackpad & Mouse | Try movement, clicks, and scrolling with the trackpad and an external mouse. Check that keyboard input is available. Hold Esc to restore the pointer. |
 | Display | Confirm all connected screens turn black and one shows the status panel. Select **End Cleaning** to restore every display. |
 | Backlight | On a supported Mac, confirm the built-in keyboard backlight goes dark and its previous brightness and automatic adjustment setting return afterward. |

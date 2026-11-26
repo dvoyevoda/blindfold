@@ -1,4 +1,3 @@
-import Darwin
 import Foundation
 
 struct KeyboardBacklightState: Codable, Equatable {
@@ -67,7 +66,7 @@ final class KeyboardBacklight {
     // Hold the lock through the session so another instance cannot replace the
     // snapshot. The snapshot survives an unexpected exit and is retried on launch.
     private final class Lease {
-        private let descriptor: Int32
+        private let lock: CleaningFileLock
         private let url: URL
 
         init?(directory: URL) {
@@ -77,19 +76,11 @@ final class KeyboardBacklight {
                 return nil
             }
 
-            let lock = directory.appendingPathComponent("keyboard-backlight.lock")
-            let descriptor = Darwin.open(lock.path, O_CREAT | O_RDWR, mode_t(0o600))
-            guard descriptor >= 0 else { return nil }
-            guard flock(descriptor, LOCK_EX | LOCK_NB) == 0 else {
-                Darwin.close(descriptor)
+            guard let lock = CleaningFileLock(directory.appendingPathComponent("keyboard-backlight.lock")) else {
                 return nil
             }
-            self.descriptor = descriptor
+            self.lock = lock
             url = Self.snapshot(in: directory)
-        }
-
-        deinit {
-            Darwin.close(descriptor)
         }
 
         static func snapshot(in directory: URL) -> URL {

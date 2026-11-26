@@ -91,7 +91,7 @@ struct CleaningView: View {
             controller.stop()
         }
         .onReceive(NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.didWakeNotification).receive(on: DispatchQueue.main)) { _ in
-            controller.recoverKeyboardBacklight()
+            controller.recoverKeyboardState()
         }
         .onReceive(NSWorkspace.shared.notificationCenter.publisher(for: NSWorkspace.screensDidSleepNotification).receive(on: DispatchQueue.main)) { _ in
             controller.stop()
