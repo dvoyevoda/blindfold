@@ -17,7 +17,11 @@
 2. Choose what to pause and click **Start Cleaning**. For keyboard or pointer input, grant **Accessibility** and, if requested, **Input Monitoring** in **System Settings → Privacy & Security**.
 3. Hold **Esc** for three seconds to finish, or let the auto-unlock timer expire. Choose **Never** for a session without a timer.
 
-Blindfold is ad hoc signed. If Gatekeeper blocks your first launch, click **Done**, then go to **System Settings → Privacy & Security** and choose **Open Anyway** for Blindfold. [Apple’s first-launch instructions](https://support.apple.com/en-us/102445#openanyway)
+### If macOS blocks the first launch
+
+Blindfold is ad hoc signed. For a copy from the official GitHub release, click **Done** in the alert, then open **System Settings → Privacy & Security**. Scroll to **Security**, click **Open Anyway** next to Blindfold, and confirm. [Apple’s first-launch instructions](https://support.apple.com/en-us/102445#openanyway)
+
+<img src="assets/screenshots/open-anyway.png" width="640" alt="macOS Privacy &amp; Security shows Blindfold was blocked. The Open Anyway button is outlined in blue.">
 
 ## Cleaning controls
 
